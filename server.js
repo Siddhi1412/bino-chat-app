@@ -1,30 +1,32 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+app.use(express.static(path.join(__dirname))); // Serve static files (index.html, css, js)
 
-app.get("/api/reply", (req, res) => {
-  const msg = (req.query.msg || "").toLowerCase();
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/reply", (req, res) => {
+  const msg = req.query.msg.toLowerCase();
   let reply = "🤔 Let me search that for you...";
 
   if (msg.includes("cafe") || msg.includes("restaurant")) {
-    reply = "☕ Top cafes near you: Blue Tokai, Third Wave, Starbucks.";
+    reply = "☕ Top cafes near you: Blue Tokai, Third Wave, and Starbucks.";
+  } else if (msg.includes("movie")) {
+    reply = "🎬 Currently trending movies: Inception, Oppenheimer, and Barbie.";
   } else if (msg.includes("weather")) {
-    reply = "🌤️ Weather today: 29°C, partly cloudy.";
-  } else if (msg.includes("job") || msg.includes("intern")) {
-    reply = "💼 Job alert: Backend Intern @ Boni, UI Intern @ PixelEdge.";
-  } else if (msg.includes("news")) {
-    reply = "📰 Latest: India launches new satellite mission!";
-  } else if (msg.includes("hello") || msg.includes("hi")) {
-    reply = "👋 Hello! Ask me anything you want to search.";
+    reply = "🌤️ It’s sunny today! Great time to go out.";
   }
 
-  res.json({ reply });
+  res.send({ reply });
 });
 
-app.listen(port, () => {
-  console.log(`🚀 Server running at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
