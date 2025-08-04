@@ -12,7 +12,8 @@ function sendMessage() {
   chatbox.appendChild(userMsg);
 
   // Fetch from backend
-  fetch(`http://localhost:3000/api/reply?msg=${encodeURIComponent(message)}`)
+ fetch(`https://bino-chat-app.onrender.com/api/reply?msg=${message}`)
+
     .then((res) => res.json())
     .then((data) => {
       const botMsg = document.createElement("div");
