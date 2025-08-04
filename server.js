@@ -6,12 +6,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.static(path.join(__dirname))); // Serve static files (index.html, css, js)
+app.use(express.static(path.join(__dirname))); // Serve static files
 
+// Serve HTML
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+// Chatbot reply route
 app.get("/reply", (req, res) => {
   const msg = req.query.msg.toLowerCase();
   let reply = "🤔 Let me search that for you...";
@@ -27,6 +29,7 @@ app.get("/reply", (req, res) => {
   res.send({ reply });
 });
 
+// Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
