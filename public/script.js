@@ -30,3 +30,11 @@ function sendMessage() {
 
   input.value = "";
 }
+
+// 🔥 Add this to support sending message with Enter key
+document.getElementById("userInput").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    sendMessage();
+  }
+});
