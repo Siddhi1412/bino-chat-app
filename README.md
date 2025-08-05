@@ -1,6 +1,6 @@
 # 🟢 Bino – Your WhatsApp Search Buddy
 
-Bino is a simple chatbot web app that simulates WhatsApp-style search. Ask a question, and it instantly replies based on predefined keywords.
+Bino is a smart chatbot web app that simulates WhatsApp-style search. It replies instantly to user queries using predefined keywords as well as real-time information from external APIs like Wikipedia, JokeAPI, and GNews. Just ask a question, and Bino responds with informative, funny, or trending answers in a friendly chat interface. 
 
 🔗 **Live Demo**: [bino-chat-app.onrender.com](https://bino-chat-app.onrender.com)  
 📁 **GitHub Repo**: [github.com/Siddhi1412/bino-chat-app](https://github.com/Siddhi1412/bino-chat-app)
