@@ -47,21 +47,29 @@ p {
   gap: 10px;
 }
 
+/* 🟢 Message Styles (FIXED OVERFLOW) */
 .message {
   padding: 10px 15px;
   border-radius: 18px;
   max-width: 80%;
   line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap; /* 🔥 key to prevent overflow */
 }
 
+/* 🤖 Bot Messages */
 .bot {
   background-color: #d1f5d3;
   align-self: flex-start;
+  color: #000;
 }
 
+/* 👤 User Messages */
 .user {
   background-color: #cfe3ff;
   align-self: flex-end;
+  color: #000;
 }
 
 .input-area {
